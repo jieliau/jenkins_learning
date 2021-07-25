@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ $1 = "stage1" ]; then
-    echo ${APIKEY}
+    echo $API
 fi
 
 if [ $1 = "stage2" ]; then
-    echo ${PASS}
+    echo $PASS
 fi
