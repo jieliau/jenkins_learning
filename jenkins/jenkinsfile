@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    environment {
+        API = credentials('APIKEY')
+        PASS = credentials('PASS')
+    }
+    stages {
+        stage('Checkout project') {
+            steps {
+                git branch: 'Pipeline',
+                url: 'https://github.com/jieliau/jenkins_learning.git'
+                
+                sh 'ls -la'
+            }
+        }
+        stage('Stage 1') {
+            steps {
+                sh "bash ./example.sh stage1"
+            }
+        }
+        stage('Stage 2'){
+            steps {
+                sh "bash ./example.sh stage2"
+            }
+        }
+    }
+}
